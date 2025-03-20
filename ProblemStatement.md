@@ -17,19 +17,12 @@ Design and implement a **Coupon Management System** that supports adding product
 - The system allows adding a new product with a command:
   ADD_PRODUCT <productId> <name> <price> <stock>
 
-css
-Copy
-Edit
 - The system must store and be able to retrieve **all available products** for browsing.
 
 ### 2.2 Cart Management
 - Multiple users or multiple carts can exist in the system.
 - To add items to a cart:
   ADD_TO_CART <cartId> <productId> <quantity>
-
-markdown
-Copy
-Edit
 - If `<cartId>` does **not** exist, create a new cart with that ID.
 - If `<cartId>` exists, add items to the existing cart.
 - The system should be able to show or calculate the cart total (sum of each item’s `price * quantity`).
@@ -44,7 +37,7 @@ Edit
 - **Expiry Date**
 - Example command to create a coupon:
   CREATE_COUPON <couponCode> <discountType> <discountValue> <maxDiscount> <usageLimit> <expiryDate>
-
+- 
 - A coupon can be applied to a cart with:
   APPLY_COUPON <cartId> <couponCode>
 
@@ -99,18 +92,17 @@ Edit
 ## 3. Example Input/Output Flow (Illustrative)
 
 **Commands**:
-ADD_PRODUCT P1 Shirt 1000 20 ADD_PRODUCT P2 Jeans 2000 30 CREATE_COUPON SUMMER30 percentage 30 500 1500 2024-12-31 CREATE_COUPON FLAT200 flat 200 1000 2024-12-31 ADD_TO_CART CART1 P1 2 ADD_TO_CART CART1 P2 1 APPLY_COUPON CART1 SUMMER30 COMPLETE_PURCHASE CART1
-
-markdown
-Copy
-Edit
+ADD_PRODUCT P1 Shirt 1000 20 
+ADD_PRODUCT P2 Jeans 2000 30 
+CREATE_COUPON SUMMER30 percentage 30 500 1500 2024-12-31 
+CREATE_COUPON FLAT200 flat 200 1000 2024-12-31 
+ADD_TO_CART CART1 P1 2 
+ADD_TO_CART CART1 P2 1 APPLY_COUPON CART1 SUMMER30 
+COMPLETE_PURCHASE CART1
 
 **Sample Output**:
 Product P1 added successfully Product P2 added successfully Coupon SUMMER30 created successfully Coupon FLAT200 created successfully Products added to cart Products added to cart Original Amount: 4000 Discount Applied: 500 Final Amount: 3500 Purchase completed successfully!
 
-markdown
-Copy
-Edit
 *(The numerical values here are just for demonstration; exact amounts depend on the logic and prices.)*
 
 ---
@@ -131,7 +123,6 @@ Edit
 3. **Proper Exception Handling** for out-of-stock errors, invalid coupon usage, expired coupons, payment failures, etc.
 4. **Extendability**:
     - It should be straightforward to add new discount types (e.g., BOGO, tiered discounts) or new payment methods (e.g., Net Banking).
-
 ---
 
 ### End of Document
